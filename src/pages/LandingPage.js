@@ -23,6 +23,7 @@ import { Link } from 'react-router-dom'
 import { GrGallery } from 'react-icons/gr'
 import { Loading } from '../components/Loading'
 import gsap from 'gsap'
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
 
 export const LandingPage = () => {
   const [isDesktop, setDesktop] = useState(window.innerWidth > 1024)
@@ -136,7 +137,15 @@ export const LandingPage = () => {
             data: {
               image: { src },
             },
-          } = await axios.post(`${process.env.REACT_APP_SERVER_URL}`)
+          } = await axios.post(
+            `${process.env.REACT_APP_SERVER_URL}`,
+            formData,
+            {
+              headers: {
+                'Content-Type': 'multipart/form-data',
+              },
+            }
+          )
 
           // problem is that setImage is asynchronous. So axios.post is invoked before setImage is set, therefore upload a null value
 
