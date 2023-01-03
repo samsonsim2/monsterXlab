@@ -12,7 +12,7 @@ export const Gallery = () => {
     const fetchImages = async () => {
       const {
         data: { Images },
-      } = await axios.get(`/api/v1/images`)
+      } = await axios.get(`${process.env.REACT_APP_SERVER_IMAGE_URL}`)
 
       const reverseImage = Images.reverse()
 
