@@ -4,9 +4,8 @@ import Articles from '../components/Articles'
 import { useAppContext } from '../context/appContext'
 import { ImLab } from 'react-icons/im'
 import { Link } from 'react-router-dom'
-
+axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*'
 export const Gallery = () => {
-  axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*'
   const { gallery, setGallery } = useAppContext()
 
   useEffect(() => {
