@@ -136,15 +136,7 @@ export const LandingPage = () => {
             data: {
               image: { src },
             },
-          } = await axios.post(
-            `${process.env.REACT_APP_SERVER_URL}`,
-            formData,
-            {
-              headers: {
-                'Content-Type': 'multipart/form-data',
-              },
-            }
-          )
+          } = await axios.post(`${process.env.REACT_APP_SERVER_URL}`)
 
           // problem is that setImage is asynchronous. So axios.post is invoked before setImage is set, therefore upload a null value
 
