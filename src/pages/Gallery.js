@@ -6,6 +6,7 @@ import { ImLab } from 'react-icons/im'
 import { Link } from 'react-router-dom'
 
 export const Gallery = () => {
+  axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*'
   const { gallery, setGallery } = useAppContext()
 
   useEffect(() => {
