@@ -126,6 +126,7 @@ export const LandingPage = () => {
       // -- Upload Function ( Converts base64 image to image file before uploading to cloudinary)
 
       const uploadToCloud = async () => {
+        console.log('trying to upload to cloudinary')
         const file = dataURLtoFile(base64image)
         const formData = new FormData()
         formData.append('image', file, file.name)
@@ -147,6 +148,7 @@ export const LandingPage = () => {
         } catch (error) {
           image = null
           console.log(error)
+          console.log('failed to upload to cloudinary')
         }
       }
 
