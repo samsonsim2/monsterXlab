@@ -134,18 +134,13 @@ export const LandingPage = () => {
         //   console.log('please give a name and desc')
         // } else
         try {
-          // const {
-          //   data: {
-          //     image: { src },
-          //   },
-          // } = await axios.post(`${process.env.REACT_APP_SERVER_URL}`, formData)
+          const {
+            data: {
+              image: { src },
+            },
+          } = await axios.post(`${process.env.REACT_APP_SERVER_URL}`, formData)
 
           // problem is that setImage is asynchronous. So axios.post is invoked before setImage is set, therefore upload a null value
-
-          await fetch(`${process.env.REACT_APP_SERVER_URL}`, {
-            method: 'post',
-            body: formData,
-          })
 
           setImage(src)
           setShowModal(true)
